@@ -1,0 +1,18 @@
+import motor_control as mc,time as t, RPi.GPIO as GPIO
+#this program makes the robot do a three point turn
+GPIO.setwarnings(False)
+t.sleep(0.5)
+mc.fwd(100,15)
+t.sleep(0.5)
+mc.anticlockwise(100,2.3)
+t.sleep(0.5)
+mc.fwd(100,3)
+t.sleep(0.5)
+mc.bwd(100,7)
+t.sleep(0.5)
+mc.fwd(100,2.3)
+t.sleep(0.5)
+mc.anticlockwise(100,3)
+t.sleep(0.5)
+mc.fwd(100,15)
+GPIO.cleanup()
