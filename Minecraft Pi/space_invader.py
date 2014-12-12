@@ -21,7 +21,7 @@ def space_invader(x,y,z,colour,time):
             mc.setBlock(x+row2,y+18,z+10,35,colour) #This is the location that the block will be
     
         mc.setBlocks(x+1,y+17,z+10,x+11,y+13,z+10,35,colour)#Builds a rectangle to make the basic body of the space invader
-
+        #creates details for the space invader by setting/removing blocks
         for row3 in (1,2,10,11):
             mc.setBlock(x+row3,y+17,z+10,0)
 
@@ -74,31 +74,35 @@ def space_invader(x,y,z,colour,time):
         t.sleep(time)#pauses the program
 
 x = int(raw_input("Where do you want the space invader to be (x co-ordinte)?"))
-
+#if the chosen x co-ordinate is in the minecraft world's boundaries, it will allow the block to be placed there
 if -128 <= x <= 128:
     print("That will be the x co-ordinate.")
+#if the chosen x co-ordinate is not in the minecraft world's boundaries, it will select a random location to place the block
 else:
     x = x1
     print("I did not understand that. I will place the invader near the player.")
 
 y = int(raw_input("Where do you want the space invader to be (y co-ordinate)?"))
-
+#if the chosen y co-ordinate is in the minecraft world's boundaries, it will allow the block to be placed there
 if -128 <= y <= 128:
     print("Tht will be the y co-ordinate")
+#if the chosen x co-ordinate is not in the minecraft world's boundaries, it will select a random location to place the block
 else:
     y = y1
     print("I did not understand that. I will place the invader near the player.")
 
 z = int(raw_input("Where do you want the space invader to be (z co-ordinate)?"))
-
+#if the chosen x co-ordinate is in the minecraft world's boundaries, it will allow the block to be placed there
 if -128 <= z <= 128:
     print("That will be the z co-ordinate")
+#if the chosen x co-ordinate is not in the minecraft world's boundaries, it will select a random location to place the block
 else:
     z = z1
     print("I did not understand that. I will place the invader near the player.")
 
-
+#defines colours
 colour = raw_input("What colour do you want your invader to be?")
+#depending on the colour entered, the pi will convert it into a number which will be the block id for the corresponding colour
 if colour == "orange":
           colour = 1
 elif colour == "magenta":
@@ -121,9 +125,10 @@ elif colour == "red":
           colour = 14
 elif colour == "black":
           colour = 15
-else:
+else: #if the user inputs a colour that is not known to the pi, it will select a random colour for the space invader
           print("Choosing random colour")
           colour = float(random.randint(1,15))
+#gets the user to choose how fast they want the invader to move
 time = float(raw_input("How fast do you want the space invader to move (put a number for the speed, the higher the number, the slower it moves"))
 
 
