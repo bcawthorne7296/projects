@@ -61,7 +61,23 @@ def getCharProfile():#defines a function for collecting someone's characteristic
             glassesResponse = True
         else:
             glassesResponse = False
-    return [name,hairResponse,hatResponse,eyeResponse,genderResponse,facialResponse,glassesResponse]#returns all the persons characteristics
+    profileList = [name,hairResponse,hatResponse,eyeResponse,genderResponse,facialResponse,glassesResponse]#returns all the persons characteristics
+    return profileList
+
+def saveProfile():
+    profile = profileList
+    with open("profiles.txt",mode="a",encoding="utf-8") as my_file:
+        my_file.write(profile)
+
+def loadProfile():
+    try:
+        with open("profiles.txt",mode="rb") as my_file:
+            json.dump(profileList,my_file)
+
+
+    
+        
+        
     
     
     
@@ -73,4 +89,3 @@ def getCharProfile():#defines a function for collecting someone's characteristic
 
     
             
-
