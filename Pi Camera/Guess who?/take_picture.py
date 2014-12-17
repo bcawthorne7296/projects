@@ -1,4 +1,4 @@
-import picamera,time #imports modules of the picamera and time
+import picamera,time,json #imports modules of the picamera and time
 
 def getPicture(name="Error"): #defines function for getting picture. If they don't provide a name, the picture will be saved as 'error'
     try:
@@ -64,28 +64,37 @@ def getCharProfile():#defines a function for collecting someone's characteristic
     profileList = [name,hairResponse,hatResponse,eyeResponse,genderResponse,facialResponse,glassesResponse]#returns all the persons characteristics
     return profileList
 
-def saveProfile():
-    profile = profileList
-    with open("profiles.txt",mode="a",encoding="utf-8") as my_file:
-        my_file.write(profile)
-
+def saveProfile(profiles):
+    profile = getCharProfile()
+    profiles.append(profile)
+    with open("profiles.txt",mode="w") as my_file:
+        json.dump(profiles,my_file)
+    return profiles
 def loadProfile():
     try:
-        with open("profiles.txt",mode="rb") as my_file:
-            json.dump(profileList,my_file)
+        with open("profiles.txt",mode="r") as my_file:
+            profiles = json.load(my_file)
+            print(profiles)
+    except IOError:
+        print("Error")
+        profiles = []
+    return profiles
 
 
-    
-        
-        
-    
-    
+
+
+
+
+
+
+
+
+######Test
+print("Hi")
+profiles = loadProfile()
+while len(profiles)<24:
+    print("Hi2")
+    profiles = saveProfile(profiles)
+print("Hi3")
     
 
-    
-    
-    
-        
-
-    
-            
