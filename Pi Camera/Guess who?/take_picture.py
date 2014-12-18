@@ -70,6 +70,7 @@ def saveProfile(profiles):
     with open("profiles.txt",mode="w") as my_file:
         json.dump(profiles,my_file)
     return profiles
+
 def loadProfile():
     try:
         with open("profiles.txt",mode="r") as my_file:
@@ -81,20 +82,9 @@ def loadProfile():
     return profiles
 
 
-
-
-
-
-
-
-
-
 ######Test
-print("Hi")
 profiles = loadProfile()
 while len(profiles)<24:
-    print("Hi2")
     profiles = saveProfile(profiles)
-print("Hi3")
     
 
