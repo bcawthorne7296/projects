@@ -10,11 +10,12 @@ z = int(pos.z)
 
 mc.setBlocks(-127,-127,-127,127,127,127,0)
 
-def build_house(x,y,z):
+def build_house(x,y,z): #builds a very basic house near the player
     mc.setBlocks(x+1, y+6, z+1, x+8, y+0, z+5, 1)
     mc.setBlocks(x+2, y+5, z+2, x+7, y+0, z+4, 0)
     mc.setBlocks(x+1,y+2,z+2,x+2,y,z+2,0)
 
+#builds an army of houses
 time.sleep(3)
 mc.player.setPos(10,30,20)
 build_house(20,0,30)
