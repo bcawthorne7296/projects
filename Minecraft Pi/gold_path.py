@@ -1,7 +1,5 @@
-import mcpi.minecraft as minecraft #imports minecraft and shortens in
+import mcpi.minecraft as minecraft, time #imports minecraft and time
 mc = minecraft.Minecraft.create() #opens connection to current minecraft game
-
-import time
 
 while True: #infinate loop
     pos = mc.player.getPos() #gets players position

@@ -16,7 +16,7 @@ def dash():#dash will make the pi flash the led for longer than dot
 	GPIO.output(11, False)
 	time.sleep(0.75)
 
-
+#defines all of the letters in the alphabet to their corresponding morse code pattern
 def morse(letter):
 	if letter == "a":
 		dot()
@@ -126,10 +126,12 @@ def morse(letter):
 		dash()
 		dot()
 		dot()
-	else:
+	else: #if the computer can't understand what's being said, it will print an error message
 		print ("What is this? I don't understand!")
-message = input("What message do you want? (without any spaces please :D)")
 
+message = input("What message do you want? (without any spaces please)")
+
+#for each letter in the message, it will convert it into morse code
 for each in message:
         morse(each)
 

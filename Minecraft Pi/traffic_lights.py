@@ -4,6 +4,7 @@ mc = minecraft.Minecraft.create() #starts connection with minecraft game
 #moves player closer to origin
 mc.player.setPos(-9.7,6.5,0.9)
 
+#defines the colours to their corresponding block id
 black=7
 red=14
 orange=1
@@ -18,6 +19,7 @@ mc.setBlock(0,4,0,35,black)
 mc.setBlock(0,5,0,35,black)
 
 while True: #loops program
+    #builds a working set of traffic lights by building/changing blocks
     mc.setBlock(0,4,0,35,black)
     mc.setBlock(0,5,0,35,red)
     t.sleep(10)

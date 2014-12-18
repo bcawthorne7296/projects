@@ -32,13 +32,12 @@ def C(x,y,z,colour):
     for dot in (5,1):
         mc.setBlock(x+18, y+dot,z,35,colour)
 
-#Letter Q
+#Letter Q (unfinished)
 def Q(x,y,z,colour):
     mc.setBlocks(x+2,y+1,z,x+2,y+7,z,35,colour)
     mc.setBlocks(x+6,y+2,z,x+6,y+7,z,35,colour)
     mc.setBlocks(x+3,y+8,z,x+5,y+8,z,35,colour)
     mc.setBlocks(x+3,y,z,x+4,y,z,35,colour)
-    mc.setBlock(x+4,
 
 
 

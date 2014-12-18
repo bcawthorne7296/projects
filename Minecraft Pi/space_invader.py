@@ -8,11 +8,10 @@ x1 = int(pos.x)
 y1 = int(pos.y)
 z1 = int(pos.z)
 
-
 def space_invader(x,y,z,colour,time):
     while True: #loops infinitely so the space invader will keep changing apperence
-        #builds space invader
-        mc.setBlocks(x+20,y+20,z+20,x,y,z,0)#clears area
+        #builds space invader in the first position
+        mc.setBlocks(x+20,y+20,z+20,x,y,z,0)#clears area around where the player wants the invader to be
     
         for row1 in (3,9): #For each item in this list, it will build  block 
             mc.setBlock(x+row1,y+19,z+10,35,colour) #This is the location that the block will be
@@ -41,7 +40,7 @@ def space_invader(x,y,z,colour,time):
         
         mc.setBlocks(x+20,y+20,z+20,x,y,z,0)#removes past space invader and replaces it with the new space invader appearence
 
-        #second space invader shape
+        #second space invader shape is made by setting/deleting blocks in the world
         for row8 in (3,9): #For each item in this list, it will build  block 
             mc.setBlock(x+row8,y+19,z+10,35,colour) #This is the location that the block will be
 
@@ -71,7 +70,7 @@ def space_invader(x,y,z,colour,time):
         for row16 in (2,10):
             mc.setBlock(x+row16,y+16,z+10,0)
 
-        t.sleep(time)#pauses the program
+        t.sleep(time)#pauses the program for the length the user has designated as one of their parameters
 
 x = int(raw_input("Where do you want the space invader to be (x co-ordinte)?"))
 #if the chosen x co-ordinate is in the minecraft world's boundaries, it will allow the block to be placed there
@@ -80,7 +79,7 @@ if -128 <= x <= 128:
 #if the chosen x co-ordinate is not in the minecraft world's boundaries, it will select a random location to place the block
 else:
     x = x1
-    print("I did not understand that. I will place the invader near the player.")
+    print("I'm sorry, that location is not within the boundaries of the Minecraft world. I will place the space invader near the player.")
 
 y = int(raw_input("Where do you want the space invader to be (y co-ordinate)?"))
 #if the chosen y co-ordinate is in the minecraft world's boundaries, it will allow the block to be placed there
@@ -89,7 +88,7 @@ if -128 <= y <= 128:
 #if the chosen x co-ordinate is not in the minecraft world's boundaries, it will select a random location to place the block
 else:
     y = y1
-    print("I did not understand that. I will place the invader near the player.")
+    print("I'm sorry, that location is not within the boundaries of the Minecraft world. I will place the space invader near the player.")
 
 z = int(raw_input("Where do you want the space invader to be (z co-ordinate)?"))
 #if the chosen x co-ordinate is in the minecraft world's boundaries, it will allow the block to be placed there
@@ -98,11 +97,11 @@ if -128 <= z <= 128:
 #if the chosen x co-ordinate is not in the minecraft world's boundaries, it will select a random location to place the block
 else:
     z = z1
-    print("I did not understand that. I will place the invader near the player.")
+    print("I'm sorry, that location is not within the boundaries of the Minecraft world. I will place the space invader near the player.")
 
 #defines colours
-colour = raw_input("What colour do you want your invader to be?")
-#depending on the colour entered, the pi will convert it into a number which will be the block id for the corresponding colour
+colour = raw_input("What colour do you want your space invader to be?")
+#depending on the colour entered, the pi will convert it into a number which will be the block id for the corresponding colour block of wool
 if colour == "orange":
           colour = 1
 elif colour == "magenta":
@@ -131,8 +130,8 @@ else: #if the user inputs a colour that is not known to the pi, it will select a
 #gets the user to choose how fast they want the invader to move
 time = float(raw_input("How fast do you want the space invader to move (put a number for the speed, the higher the number, the slower it moves"))
 
-
-space_invader(x,y,z,colour,time) #calls function
+space_invader(x,y,z,colour,time)
+#calls the function and makes an invader which is in the location they selected, with the colour blocks they wanted and moves at their desired speed
 
 
 
