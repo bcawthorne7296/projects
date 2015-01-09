@@ -28,12 +28,15 @@ def getCharProfile():#defines a function for collecting someone's characteristic
     while name == "":#the loops will repeat until the person enters something
         name = input("What is your name?")
         if input("Is your name " + name + "?(Y/N)").lower() == "y": #checks if the name given is correct
-            getPicture(name) #takes picture and saves it with the name of the person that they provided
+            filename = getPicture(name) #takes picture and saves it with the name of the person that they provided
         else:
             name=""
+
+
     hairResponse = ""
     while hairResponse=="": 
         hairResponse = input("What colour is your hair?")
+
     hatResponse = ""
     while hatResponse=="":
         hatResponse = input("Are you wearing a hat(Y/N)?")
@@ -41,12 +44,15 @@ def getCharProfile():#defines a function for collecting someone's characteristic
             hatResponse = True#if the person is wearing a hat, it sets hat to true
         else:
             hatResponse = False #if the person isn't wearing a hat, it sets hat to false
+
     eyeResponse = ""
     while eyeResponse=="":
         eyeResponse = input("What colour are your eyes?")
+
     genderResponse = ""
     while genderResponse=="":
         genderResponse = input("Are you male or female?")
+
     facialResponse = ""
     while facialResponse=="":
         facialResponse = input("Do you have facial hair(Y/N)?")
@@ -54,6 +60,7 @@ def getCharProfile():#defines a function for collecting someone's characteristic
             facialResponse = True
         else:
             facialResponse = False
+
     glassesResponse = ""
     while glassesResponse=="":
         glassesResponse = input("Are you wearing glasses(Y/N)?")
@@ -61,7 +68,7 @@ def getCharProfile():#defines a function for collecting someone's characteristic
             glassesResponse = True
         else:
             glassesResponse = False
-    profileList = [name,hairResponse,hatResponse,eyeResponse,genderResponse,facialResponse,glassesResponse]#returns all the persons characteristics
+    profileList = [name,hairResponse,hatResponse,eyeResponse,genderResponse,facialResponse,glassesResponse,filename]#returns all the persons characteristics
     return profileList
 
 def saveProfile(profiles):
@@ -83,8 +90,9 @@ def loadProfile():
 
 
 ######Test
+xprofiles = 0
 profiles = loadProfile()
-while len(profiles)<24:
+while xprofiles<24:
     profiles = saveProfile(profiles)
-    
+    xprofiles += 1
 
